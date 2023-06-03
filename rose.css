@@ -1,26 +1,64 @@
-.rose {
+:root {
+  --thorns:
+    -8ex 13ex 0 var(--eros),
+    -5ex 8ex 0 var(--eros),
+    -3ex 5ex 0 var(--eros),
+    -8ex -13ex 0 var(--eros),
+    -5ex -8ex 0 var(--eros),
+    -3ex -5ex 0 var(--eros);
   --rose: pink;
-  background: var(--rose);
-  color: #111;
+  --eros: deeppink;
+  --sore: darkmagenta;
+  accent-color: var(--eros);
+  background-color: var(--rose);
+  color: var(--sore);
 }
 
-.rose ::selection {
-  background: #111;
+::selection {
+  background-color: var(--eros);
+  color: #313;
+}
+
+:any-link {
   color: var(--rose);
+  background-color: var(--sore);
+  text-shadow: 0 0 1ex var(--eros);
+  text-decoration: dotted underline var(--eros);
+  transition: filter 300ms ease;
 }
 
-.rose :any-link {
-  color: indigo;
+:focus {
+  box-shadow: 0 0 0 1ex var(--eros);
+  outline: thick groove;
+}
+
+:any-link:hover {
+  filter: hue-rotate(-20deg);
 }
 
 @media (prefers-contrast: less) {
-  .rose {
+  :root {
     --rose: lightpink;
   }
 }
 
 @media (prefers-contrast: more) {
-  .rose {
+  :root {
     --rose: mistyrose;
+    --sore: indigo;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --eros: hotpink;
+    background-color: var(--sore);
+    color: var(--rose);
+  }
+
+  :any-link {
+    color: var(--sore);
+    background-color: var(--rose);
+  } 
+}
+
