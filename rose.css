@@ -23,16 +23,18 @@
   color: var(--rose);
   background-color: var(--sore);
   text-shadow: 0 0 1ex var(--eros);
-  text-decoration: dotted underline var(--eros);
+  text-decoration: dotted overline;
   transition: filter 300ms ease;
 }
 
 :focus {
   box-shadow: 0 0 0 1ex var(--eros);
-  outline: thick groove;
+  outline: thick outset;
+  text-decoration-line: underline;
 }
 
 :any-link:hover {
+  box-shadow: 0 0 0 1ex var(--eros);
   filter: hue-rotate(-20deg);
 }
 
@@ -50,7 +52,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not(:target) {
     --eros: hotpink;
     background-color: var(--sore);
     color: var(--rose);
